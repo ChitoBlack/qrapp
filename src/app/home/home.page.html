@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+
+    <ion-buttons slot="start">
+        <ion-menu-button menu="mainMenu"></ion-menu-button>
+    </ion-buttons>
+
+    <!-- Botón de GPS en la barra superior derecha -->
+    <ion-buttons slot="end">
+        <ion-button (click)="onGpsClick()">
+        <ion-icon name="locate-outline"></ion-icon>
+        Mostrar Mapa
+        </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <div *ngIf="showMap" class="map-modal">
+    <!-- Botón de cierre en la esquina superior derecha del modal -->
+    <ion-button (click)="closeMap()" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">
+        <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+    <div id="map" class="map-container"> </div>
+    </div>
+    
+
+    
+
+    <!-- Botón de escaneo QR -->
+    <ion-button expand="full" (click)="checkCameraPermission()">Escanear QR</ion-button>
+    <ion-button expand="full" color="danger" *ngIf="scanActive" (click)="stopScan()">Detener Escaneo</ion-button>
+
+    <!-- Foto de perfil y nombre de usuario (solo si el usuario está logueado) -->
+    
+
+    
+    
+</ion-content>

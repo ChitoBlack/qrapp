@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-register">
+  <div class="register-container">
+    <!-- Burbuja de imagen de perfil -->
+    <div *ngIf="profileimageUrl" class="avatar-bubble">
+      <img [src]="profileimageUrl" alt="Avatar" />
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="goToRegisterPage2()">
+      <!-- Campo de Nombre de Usuario -->
+      <ion-item class="ion-margin-top">
+        <ion-label position="floating">Nombre de Usuario</ion-label>
+        <ion-input formControlName="username" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+        {{ getUsernameError() }}
+      </ion-text>
+
+      <!-- Campo de Correo Electrónico -->
+      <ion-item class="ion-margin-top">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        {{ getEmailError() }}
+      </ion-text>
+
+      <!-- Campo de Contraseña -->
+      <ion-item class="ion-margin-top">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        {{ getPasswordError() }}
+      </ion-text>
+
+      <!-- Botón para tomar foto -->
+      <ion-button expand="full" (click)="captureAndUploadPhoto()">Tomar Foto</ion-button>
+
+      <!-- Botón para ir a la segunda página de registro -->
+      <ion-button expand="full" type="submit" [disabled]="registerForm.invalid || !profileimageUrl" class="next-button">
+        Siguiente
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

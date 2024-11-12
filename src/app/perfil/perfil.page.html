@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-perfil">
+  <div class="perfil-container">
+    <!-- Mostrar imagen de perfil -->
+    <div class="avatar-bubble">
+      <img [src]="profileimageUrl" alt="Avatar" />
+    </div>
+
+    <!-- Mostrar datos del perfil -->
+    <ion-list>
+      <ion-item>
+        <ion-label>Nombre de Usuario:</ion-label>
+        <ion-text>{{ userData.username || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-text>{{ userData.email || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha de Nacimiento:</ion-label>
+        <ion-text>{{ userData.birthdate || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Teléfono:</ion-label>
+        <ion-text>{{ userData.phone || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Instituto:</ion-label>
+        <ion-text>{{ userData.institute || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Programa de Estudios:</ion-label>
+        <ion-text>{{ userData.studyProgram || 'No disponible' }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Información Adicional:</ion-label>
+        <ion-text>{{ userData.additionalInfo || 'No disponible' }}</ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

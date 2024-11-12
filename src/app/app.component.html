@@ -1,0 +1,25 @@
+<ion-app>
+    <!-- Menú lateral -->
+    <ion-menu side="start" menuId="mainMenu" contentId="mainContent">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menú</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item button (click)="navigateTo('perfil')">Perfil</ion-item>
+          <ion-item button (click)="navigateTo('asistencia')">Asistencia</ion-item>
+          <ion-item button (click)="navigateTo('horarios')">Horarios</ion-item>
+          <ion-item button (click)="navigateTo('historial')">Historial</ion-item>
+          <ion-button expand="full" (click)="isLoggedIn ? logout() : loginOrLogout()">
+            {{ isLoggedIn ? 'Cerrar Sesión' : 'Iniciar Sesión' }}
+            </ion-button>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  
+    <!-- Contenido principal -->
+    <ion-router-outlet id="mainContent"></ion-router-outlet>
+  </ion-app>
+  
